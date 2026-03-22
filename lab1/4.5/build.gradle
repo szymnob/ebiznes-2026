@@ -1,0 +1,14 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id 'application'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    // Paczka JDBC SQLite (wymagana w zadaniu 4.0/4.5)
+    implementation 'org.xerial:sqlite-jdbc:3.45.1.0'
+}
+
+application { mainClass = 'MainKt' }
