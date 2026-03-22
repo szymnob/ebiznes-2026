@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -s "https://get.sdkman.io" | bash
 
 RUN bash -c "source /root/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 8.0.482-tem && \
+    sdk install java 21.0.9-albba && \
     sdk install kotlin && \
     sdk install gradle"
 
@@ -23,7 +23,7 @@ ENV PATH="${JAVA_HOME}/bin:${KOTLIN_HOME}/bin:${GRADLE_HOME}/bin:${PATH}"
 WORKDIR /app
 COPY . .
 
-# Kompilacja aplikacji
+# kompilacja
 RUN gradle build
 
 CMD ["gradle", "run"]

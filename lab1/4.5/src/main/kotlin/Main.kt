@@ -1,12 +1,12 @@
 import java.sql.DriverManager
 
 fun main() {
-    println("--- Hello World z Kotlina w Dockerze! ---")
+    println("Hello world")
     
     // Test JDBC SQLite
     try {
         val conn = DriverManager.getConnection("jdbc:sqlite::memory:")
-        println("Sukces: Połączono z bazą SQLite (w pamięci)!")
+        println("Polaczono z baza")
         conn.close()
     } catch (e: Exception) {
         println("Błąd JDBC: ${e.message}")

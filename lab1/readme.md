@@ -1,3 +1,5 @@
+#Szymon Biel
+
 Zadanie 1 Docker
 
 3.0 obraz ubuntu z Pythonem w wersji 3.10
@@ -16,4 +18,14 @@ Obraz dockerowy należy wrzucić na hub.docker.com.
 Dockerfile oraz dodatkowe pliki powinny być na repozytorium git.
 Readme powinno zawierać link do obrazu na hub.docker.com.
 
+3.0
+https://hub.docker.com/repository/docker/szymno/lab1-3.0/general
 
+3.5
+https://hub.docker.com/repository/docker/szymno/lab1-3.5/general
+
+4.0
+https://hub.docker.com/repository/docker/szymno/lab1-3.5/general
+
+4.5
+hub.docker.com/repository/docker/szymno/lab1-4.5

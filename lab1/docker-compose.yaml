@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  #3.5
+  python-service:
+    build: ./3.5
+    container_name: lab1-3.5
+
+  # 5.0
+  kotlin-service:
+    build: ./4.5
+    container_name: lab1-4.5
+    volumes:
+      - ./data:/app/data
