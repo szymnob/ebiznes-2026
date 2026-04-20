@@ -7,10 +7,12 @@ jednak pozostać przy sqlite.
 
 ✅ 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie
 miała kontroler Produktów zgodny z CRUD
+[commit](https://github.com/szymnob/ebiznes-2026/commit/066f0ef9a293db704bdce4b8127fe78facc93a33)
 
 ✅ 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz
 wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast
 listy)
+[commit](https://github.com/szymnob/ebiznes-2026/commit/6d05880ebc6f0ef7f07989d2b4ac36ed52ca976a)
 
 ❌ 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint
 
