@@ -2,77 +2,60 @@ package main
 
 import (
 	"net/http"
-	"strconv"
-
+	"lab4/database"
+	"lab4/models" 
 	"github.com/labstack/echo/v4"
 )
 
-type Product struct {
-	ID    int     `json:"id"`
-	Name  string  `json:"name"`
-	Price float64 `json:"price"`
-}
-
-var products = []Product{
-	{ID: 1, Name: "Laptop", Price: 3500.00},
-}
-var nextID = 2
-
 func main() {
+	database.InitDB()
+
 	e := echo.New()
 
-
-	// create
-	e.POST("/products", func(c echo.Context) error {
-		p := new(Product)
-		if err := c.Bind(p); err != nil {
-			return err
-		}
-		p.ID = nextID
-		nextID++
-		products = append(products, *p)
-		return c.JSON(http.StatusCreated, p)
-	})
-
-	// readd all
+	// get all
 	e.GET("/products", func(c echo.Context) error {
+		var products []models.Product
+		database.DB.Find(&products)
 		return c.JSON(http.StatusOK, products)
 	})
 
-	// read by id
+	// POST
+	e.POST("/products", func(c echo.Context) error {
+		p := new(models.Product)
+		if err := c.Bind(p); err != nil {
+			return err
+		}
+		database.DB.Create(&p)
+		return c.JSON(http.StatusCreated, p)
+	})
+
+	// Get id
 	e.GET("/products/:id", func(c echo.Context) error {
-		id, _ := strconv.Atoi(c.Param("id"))
-		for _, p := range products {
-			if p.ID == id {
-				return c.JSON(http.StatusOK, p)
-			}
+		id := c.Param("id")
+		var product models.Product
+		if err := database.DB.First(&product, id).Error; err != nil {
+			return c.JSON(http.StatusNotFound, "Brak produktu")
 		}
-		return c.JSON(http.StatusNotFound, "Nie ma takiego produktu")
+		return c.JSON(http.StatusOK, product)
 	})
 
-	// update
+	// PUT
 	e.PUT("/products/:id", func(c echo.Context) error {
-		id, _ := strconv.Atoi(c.Param("id"))
-		for i, p := range products {
-			if p.ID == id {
-				c.Bind(&products[i])
-				products[i].ID = id // Upewniamy się, że ID się nie zmieniło
-				return c.JSON(http.StatusOK, products[i])
-			}
+		id := c.Param("id")
+		var product models.Product
+		if err := database.DB.First(&product, id).Error; err != nil {
+			return c.JSON(http.StatusNotFound, "Nie ma co aktualizować")
 		}
-		return c.JSON(http.StatusNotFound, "Nie znaleziono")
+		c.Bind(&product)
+		database.DB.Save(&product)
+		return c.JSON(http.StatusOK, product)
 	})
 
-	// delete
+	// dalete
 	e.DELETE("/products/:id", func(c echo.Context) error {
-		id, _ := strconv.Atoi(c.Param("id"))
-		for i, p := range products {
-			if p.ID == id {
-				products = append(products[:i], products[i+1:]...)
-				return c.NoContent(http.StatusNoContent)
-			}
-		}
-		return c.JSON(http.StatusNotFound, "Nie znaleziono")
+		id := c.Param("id")
+		database.DB.Delete(&models.Product{}, id)
+		return c.NoContent(http.StatusNoContent)
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))
