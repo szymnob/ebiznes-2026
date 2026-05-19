@@ -1,0 +1,41 @@
+#!/bin/sh
+set -e
+
+# Aby skrypt zaczal dzialac na nowym komputerze, nalezy uruchomic komende:
+# git config core.hooksPath lab7/hooks
+
+export GOPATH="$(go env GOPATH)"
+export GOCACHE="$(go env GOCACHE)"
+export GOMODCACHE="$(go env GOMODCACHE)"
+export PATH="$PATH:$GOPATH/bin:/usr/local/bin"
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BACKEND_DIR="$REPO_ROOT/lab7/backend"
+
+CHANGED_GO_FILES="$(git diff --cached --name-only --diff-filter=ACM | grep -E '^lab7/backend/.*\.go$' || true)"
+
+if ! command -v golangci-lint >/dev/null 2>&1; then
+    echo "[pre-commit] golangci-lint is not installed."
+    exit 1
+fi
+
+if [ -z "$CHANGED_GO_FILES" ]; then
+    echo "[pre-commit] No changed .go files detected in $BACKEND_DIR. Skipping golangci-lint."
+    exit 0
+fi
+
+echo "[pre-commit] Downloading Go modules..."
+( cd "$BACKEND_DIR" && go mod download )
+
+echo "[pre-commit] Running golangci-lint in $BACKEND_DIR..."
+
+LINT_EXIT=0
+( cd "$BACKEND_DIR" && golangci-lint run ./... ) || LINT_EXIT=$?
+
+if [ $LINT_EXIT -ne 0 ]; then
+    echo "[pre-commit] golangci-lint found issues. Commit blocked."
+    exit $LINT_EXIT
+fi
+
+echo "[pre-commit] golangci-lint passed successfully."
+exit 0
