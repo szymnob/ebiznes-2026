@@ -9,13 +9,19 @@ wynikami.
 hookach gita
 ✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod
 aplikacji serwerowej)
-4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod
+✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod
 aplikacji serwerowej)
 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa
 w kodzie w Sonarze (kod aplikacji serwerowej)
 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie
 aplikacji klienckiej
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
+Backend
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
+
+Frontend
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=szymnob_ebiznes-lab7-backend&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=szymnob_ebiznes-lab7-backend)
