@@ -31,6 +31,30 @@ function App() {
     }
   };
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setMessage('');
+
+    try {
+      const response = await fetch('http://localhost:8080/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        setMessage('Zarejestrowano pomyślnie!');
+        setToken(data.token);
+      } else {
+        setMessage(`Błąd rejestracji: ${data.message || 'Niepowodzenie'}`);
+      }
+    } catch (err) {
+      setMessage('Brak połączenia z serwerem Go!');
+    }
+  };
+
   return (
     <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
       <h2>Logowanie</h2>
@@ -38,6 +62,7 @@ function App() {
         <input type="text" placeholder="Użytkownik" value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="password" placeholder="Hasło" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Zaloguj</button>
+        <button type="button" onClick={handleRegister}>Zarejestruj</button>
       </form>
       {message && <p><strong>Status:</strong> {message}</p>}
       {token && <p style={{ wordBreak: 'break-all' }}><strong>Token:</strong> {token}</p>}

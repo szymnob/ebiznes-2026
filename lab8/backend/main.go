@@ -85,8 +85,53 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func registerHandler(w http.ResponseWriter, r *http.Request) {
+	setCORS(w, r)
+	w.Header().Set("Content-Type", "application/json")
+
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
+	if r.Method != http.MethodPost {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req LoginRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		_ = json.NewEncoder(w).Encode(LoginResponse{Status: "error", Message: "invalid request"})
+		return
+	}
+
+	if req.Username == "" || req.Password == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		_ = json.NewEncoder(w).Encode(LoginResponse{Status: "error", Message: "username and password required"})
+		return
+	}
+
+	if _, exists := users[req.Username]; exists {
+		w.WriteHeader(http.StatusConflict)
+		_ = json.NewEncoder(w).Encode(LoginResponse{Status: "error", Message: "user exists"})
+		return
+	}
+
+	// add user (in-memory)
+	users[req.Username] = req.Password
+
+	// return created with token
+	sessionToken := generateSessionToken()
+	serverSessions[sessionToken] = req.Username
+
+	w.WriteHeader(http.StatusCreated)
+	_ = json.NewEncoder(w).Encode(LoginResponse{Status: "ok", Token: sessionToken})
+}
+
 func main() {
 	http.HandleFunc("/login", loginHandler)
+	http.HandleFunc("/register", registerHandler)
 
 	fmt.Println("Server running on port 8080...")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
