@@ -2,6 +2,8 @@ Szymon Biel
 
 Zadanie 9
 
+https://github.com/user-attachments/assets/112584cc-210c-40a9-837b-4111efa946f9
+
 Należy rozszerzyć funkcjonalność wcześniej stworzonego bota. Do niego
 należy stworzyć aplikację frontendową, która połączy się z osobnym
 serwisem, który przeanalizuje tekst od użytkownika i prześle zapytanie
