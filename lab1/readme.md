@@ -2,6 +2,8 @@
 
 Zadanie 1 Docker
 
+https://github.com/user-attachments/assets/b623289b-8c43-421d-afe4-f536ea7fa865
+
 3.0 obraz ubuntu z Pythonem w wersji 3.10
 3.5 obraz ubuntu:24.02 z Javą w wersji 8 oraz Kotlinem
 4.0 do powyższego należy dodać najnowszego Gradle’a oraz paczkę JDBC
