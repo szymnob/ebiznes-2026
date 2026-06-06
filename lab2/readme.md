@@ -2,6 +2,8 @@ Szymon Biel
 
 Zadanie 2 Scala
 
+https://github.com/user-attachments/assets/3141a011-2512-4458-977c-19c323fd8448
+
 Należy stworzyć aplikację na frameworku Play lub Scalatra.
 
 ✅ 3.0 Należy stworzyć kontroler do Produktów
