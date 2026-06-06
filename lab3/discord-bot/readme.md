@@ -2,6 +2,8 @@ Szymon Biel
 
 Zadanie 3 Kotlin
 
+https://github.com/user-attachments/assets/c8696dd2-1d8d-4cfc-8ed7-f232fe5673ec
+
 ✅ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord
 [commit](https://github.com/szymnob/ebiznes-2026/commit/d7fa2a2f27634e7a3e47fce5d08fa6c793bb5277)
 
