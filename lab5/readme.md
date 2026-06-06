@@ -1,4 +1,8 @@
+#Szymon Biel
+
 Zadanie 5 Frontend
+
+https://github.com/user-attachments/assets/67d73e8f-f517-4e5c-abcf-0b76a9799da1
 
 Należy stworzyć aplikację kliencką wykorzystując bibliotekę React.js.
 W ramach projektu należy stworzyć trzy komponenty: Produkty, Koszyk
@@ -12,9 +16,13 @@ przesyłane za pomocą React hooks.
 Płatności; Płatności powinny wysyłać do aplikacji serwerowej dane, a w
 Produktach powinniśmy pobierać dane o produktach z aplikacji
 serwerowej;
+
 ✅ 3.5 Należy dodać Koszyk wraz z widokiem; należy wykorzystać routing
+
 ❌ 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za
 pomocą React hooks
+
 ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz
 kliencką na dockerze via docker-compose
+
 ❌ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS
