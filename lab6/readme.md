@@ -1,4 +1,9 @@
+#Szymon Biel
+
 Zadanie 6 Testy
+
+https://github.com/user-attachments/assets/6511f9be-8fb9-4f2e-808c-879acd60a40b
+
 Należy stworzyć 20 przypadków testowych w jednym z rozwiązań:
 
 - Cypress JS (JS)
