@@ -1,3 +1,6 @@
+#Szymon Biel
+
+https://github.com/user-attachments/assets/95c6834d-748a-42c7-89e5-1a1a507e09f9
 
 Należy stworzyć projekt w echo w Go. Należy wykorzystać gorm do
 stworzenia kilka modeli, gdzie pomiędzy dwoma musi być relacja. Należy
