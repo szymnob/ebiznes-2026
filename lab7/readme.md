@@ -1,3 +1,7 @@
+#Szymon Biel
+
+https://github.com/user-attachments/assets/1550cf3c-3bc5-44e1-b971-f1a0a947be6a
+
 Należy dodać projekt aplikacji klienckiej oraz serwerowej (jeden
 branch, dwa repozytoria) do Sonara w wersji chmurowej
 (https://sonarcloud.io/). Należy poprawić aplikacje uzyskując 0 bugów,
@@ -7,12 +11,16 @@ wynikami.
 
 ✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w
 hookach gita
+
 ✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod
 aplikacji serwerowej)
+
 ✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod
 aplikacji serwerowej)
+
 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa
 w kodzie w Sonarze (kod aplikacji serwerowej)
+
 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie
 aplikacji klienckiej
 
