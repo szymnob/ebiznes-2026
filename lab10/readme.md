@@ -1,5 +1,7 @@
 #Szymon Biel
 
+https://github.com/user-attachments/assets/f3543e6a-29b1-4356-856d-b7996165df59
+
 ✅ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na
 dockerze
 
